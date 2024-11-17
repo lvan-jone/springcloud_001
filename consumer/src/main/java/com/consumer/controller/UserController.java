@@ -21,6 +21,11 @@ public class UserController {
      *
      * @return 测试结果
      */
+    @GetMapping("/")
+    public String getUsers() {
+        return "welcome.";
+    }
+
     @GetMapping("/come1")
     public String getUser() {
         return userService.come();
