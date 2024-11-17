@@ -16,6 +16,11 @@ public class UserController {
     @Value("${user.name1}")
     private String username;
 
+    /**
+     * 测试feign
+     *
+     * @return 测试结果
+     */
     @GetMapping("/come1")
     public String getUser() {
         return userService.come();
