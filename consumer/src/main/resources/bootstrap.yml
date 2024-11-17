@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: consumer
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+      discovery:
+        server-addr: localhost:8848
+
+#        namespace: 0dab5652-e133-4987-9e45-3431c412dc15
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+
+server:
+  port: 8090

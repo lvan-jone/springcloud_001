@@ -1,0 +1,61 @@
+server:
+  port: 8082
+#  context-path: /auth
+spring:
+  #  profiles:
+  #    active: dev
+  application:
+    name: fen
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: 0dab5652-e133-4987-9e45-3431c412dc15
+        #        group: DEFAULT_GROUP
+        #        username: nacos
+        #        password: nacos
+  #        register-enabled: true
+  #      config:
+  #        server-addr: localhost:8848
+  #        namespace: service
+  #        group: DEFAULT_GROUP
+  datasource:
+    #    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/demo?useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  security:
+    user:
+      name: user
+      password: 122
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  config-location: classpath:config/mybatis-config.xml
+  type-aliases-package: com.fen.entity
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+logging:
+  level:
+    com.fen: debug
+
+# 配置springdoc-openapi，用于文档化和访问API
+springdoc:
+  # 配置Swagger UI的访问路径和排序方式
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html  # Swagger UI的访问路径
+    tags-sorter: alpha      # 按字母顺序排序标签
+    operations-sorter: alpha  # 按字母顺序排序操作
+  # 配置API文档的访问路径
+  api-docs:
+    path: /v3/api-docs  # API文档的访问路径
+  # 配置API分组，用于组织和管理API
+  group-configs:
+    - group: 'default'   # API分组名称
+      paths-to-match: '/**'  # 匹配所有路径
+      packages-to-scan: com.fen.controller  # 扫描的包，用于自动发现API
