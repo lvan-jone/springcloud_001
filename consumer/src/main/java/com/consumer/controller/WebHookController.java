@@ -47,17 +47,18 @@ public class WebHookController {
         if (parts.length != 2) {
             return false;
         }
-//        String signature = parts[1];
-
+        String signature = parts[1];
+        log.info("signature:{}", signature);
         try {
             Mac mac = Mac.getInstance("HmacSHA256");
             SecretKeySpec keySpec = new SecretKeySpec(SECRET.getBytes(StandardCharsets.UTF_8), "HmacSHA256");
             mac.init(keySpec);
             byte[] hmacBytes = mac.doFinal(payload.getBytes(StandardCharsets.UTF_8));
             String calculatedSignature = "sha256=" + Base64.getEncoder().encodeToString(hmacBytes);
-
+            log.info("calculatedSignature:{},headerValue:{}", calculatedSignature, headerValue);
             return calculatedSignature.equals(headerValue);
         } catch (Exception e) {
+            log.error("Error verifying signature", e);
             return false;
         }
     }
