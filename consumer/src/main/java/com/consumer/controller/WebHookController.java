@@ -41,7 +41,7 @@ public class WebHookController {
 
     private boolean verifySignature(HttpHeaders headers, String payload) {
         String headerValue = headers.getFirst(HEADER_X_HUB_SIGNATURE_256);
-
+        log.info("headerValue:{}", headerValue);
         if (headerValue == null || !headerValue.startsWith("sha256=")) {
             return false;
         }
