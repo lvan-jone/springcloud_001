@@ -37,7 +37,6 @@ public class WebHookController {
         return new ResponseEntity<>("Webhook received", HttpStatus.OK);
     }
 
-
     private boolean verifySignature(HttpHeaders headers, String payload) {
         String headerValue = headers.getFirst(HEADER_X_HUB_SIGNATURE_256);
         log.info("headerValue:{}", headerValue);
