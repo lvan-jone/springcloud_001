@@ -34,7 +34,7 @@ public class WebHookController {
         log.info("payload" + payload);
         // 处理 Webhook 事件
         // 这里可以根据需要解析 payload 并执行相应的逻辑
-        //...
+        //....
         return new ResponseEntity<>("Webhook received", HttpStatus.OK);
     }
 
