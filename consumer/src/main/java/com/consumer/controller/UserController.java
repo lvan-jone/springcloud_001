@@ -16,6 +16,7 @@ public class UserController {
     @Value("${user.name1}")
     private String username;
 
+
     /**
      * 测试feign
      *
