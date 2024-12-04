@@ -16,7 +16,7 @@ import java.util.Base64;
 @RequestMapping("/webhook")
 public class WebHookController {
 
-    private static final String SECRET = "12345"; // 在GitHub设置Webhook时填写的密钥
+    private static final String SECRET = "12345"; // 在GitHub设置Webhook时填写的密钥11
     private static final String HEADER_X_HUB_SIGNATURE_256 = "X-Hub-Signature-256";
 
     @PostMapping
