@@ -27,7 +27,7 @@ public class WebHookController {
         log.info("payload:{},headers:{}", payload, headers);
         // 验证签名
         boolean success = verifySignature(headers, payload);
-        log.info("success:" + success);
+        log.info("success...:" + success);
 //        if (!success) {
 //            return new ResponseEntity<>("Invalid signature", HttpStatus.UNAUTHORIZED);
 //        }
