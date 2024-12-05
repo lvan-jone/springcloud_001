@@ -23,7 +23,7 @@ public class WebHookController {
     public ResponseEntity<String> receiveWebhook(
             @RequestHeader HttpHeaders headers,
             @RequestBody String payload) {
-        log.info("come.");
+        log.info("come");
         log.info("payload:{},headers:{}", payload, headers);
         // 验证签名
         boolean success = verifySignature(headers, payload);
